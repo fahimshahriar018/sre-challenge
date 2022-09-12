@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: list-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - http:
+      paths:
+        - path: /top10movies
+          backend:
+            serviceName: top10movies-service
+            servicePort: 8080
+        - path: /top10games
+          backend:
+            serviceName: top10games-service
+            servicePort: 8081
+        - path: /top10songs
+          backend:
+            serviceName: top10songs-service
+            servicePort: 8082

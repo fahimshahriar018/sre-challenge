@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: top10movies
+  labels:
+    app: top10movies
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: top10movies
+  template:
+    metadata:
+      labels:
+        app: top10movies
+    spec:
+      containers:
+        - name: top10movies
+          image: nginx
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: top10games
+  labels:
+    app: top10games
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: top10games
+  template:
+    metadata:
+      labels:
+        app: top10games
+    spec:
+      containers:
+        - name: top10games
+          image: nginx
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: top10songs
+  labels:
+    app: top10songs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: top10songs
+  template:
+    metadata:
+      labels:
+        app: top10songs
+    spec:
+      containers:
+        - name: top10songs
+          image: nginx
